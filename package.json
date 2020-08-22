@@ -1,0 +1,23 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla and Node Js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InwooLeeme/WeTube.git"
+  },
+  "author": "Lee In Woo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InwooLeeme/WeTube/issues"
+  },
+  "homepage": "https://github.com/InwooLeeme/WeTube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
