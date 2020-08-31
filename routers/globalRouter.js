@@ -2,7 +2,7 @@ import express from "express";
 import routes from "../routes";
 import { home, search } from "../controller/videoController";
 import {
-    login, logout, getJoin, postJoin, getLogin, postLogin
+    logout, getJoin, postJoin, getLogin, postLogin
 }
 from  "../controller/userController"
 
