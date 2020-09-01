@@ -1,5 +1,5 @@
 import "../scss/style.scss";
 
-const something = async() => {
+const something = async () => {
     console.log('something');
 }
