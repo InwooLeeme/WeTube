@@ -4,6 +4,7 @@ const JOIN = "/join";
 const LOGIN = "/login";
 const LOGOUT = "/logout";
 const SEARCH = "/search";
+const BASE = "http://localhost:4000/";
 
 // Users
 
@@ -33,6 +34,7 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
+  base: BASE,
   userDetail: (id) => {
     if (id) {
       return `/users/${id}`;
