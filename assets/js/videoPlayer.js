@@ -1,8 +1,8 @@
-const videoContainer = document.getElementById("jsVideoPlayer"),
-  videoPlayer = document.querySelector("#jsVideoPlayer video"),
-  playButton = document.getElementById("jsPlayButton"),
-  volumeBtn = document.getElementById("jsVolumeBtn"),
-  fullScreenBtn = document.getElementById("jsFullScreen");
+const videoContainer = document.getElementById("jsVideoPlayer");
+const videoPlayer = document.querySelector("#jsVideoPlayer video");
+const playButton = document.getElementById("jsPlayButton");
+const volumeBtn = document.getElementById("jsVolumeBtn");
+const fullScreenBtn = document.getElementById("jsFullScreen");
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -47,4 +47,6 @@ if (videoContainer) {
   init();
 }
 
-//videoContainer.addEventListener("click", () => false);
+console.log(videoContainer);
+
+playButton.addEventListener("click", handlePlayClick);
