@@ -1,7 +1,8 @@
 const videoContainer = document.getElementById("jsVideoPlayer"),
   videoPlayer = document.querySelector("#jsVideoPlayer video"),
   playButton = document.getElementById("jsPlayButton"),
-  volumeBtn = document.getElementById("jsVolumeBtn");
+  volumeBtn = document.getElementById("jsVolumeBtn"),
+  fullScreenBtn = document.getElementById("jsFullScreen");
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -23,9 +24,23 @@ function handleVolumnClick() {
   }
 }
 
+function exitFullScreen() {
+  fullScreenBtn.innerHTML = `<i class="fas fa-expand"></i>`;
+  fullScreenBtn.addEventListener("click", goFullScreen);
+  document.exitFullscreen();
+}
+
+function goFullScreen() {
+  videoContainer.requestFullscreen();
+  fullScreenBtn.innerHTML = `<i class="fas fa-compress-arrows-alt"></i>`;
+  fullScreenBtn.removeEventListener("click", goFullScreen);
+  fullScreenBtn.addEventListener("click", exitFullScreen);
+}
+
 function init() {
   playButton.addEventListener("click", handlePlayClick);
   volumeBtn.addEventListener("click", handleVolumnClick);
+  fullScreenBtn.addEventListener("click", goFullScreen);
 }
 
 if (videoContainer) {
