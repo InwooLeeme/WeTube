@@ -1,4 +1,3 @@
-import "core-js";
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -14,13 +13,17 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 import { localMiddleware } from "./middlewares";
 
-import "./passport.js";
+import "./passport";
 
 const app = express();
 
 const CookieStore = MongoStore(session);
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("static"));
