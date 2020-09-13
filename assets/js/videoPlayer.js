@@ -79,8 +79,13 @@ function setTotalTime() {
   setInterval(getCurrentTime, 1000);
 }
 
+function handleEnded() {
+  videoPlayer.currentTime = 0;
+  playButton.innerHTML = `<i class="fas fa-play"></i>`;
+}
+
 function getCurrentTime() {
-  currentTime.innerHTML = formateDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formateDate(Math.floor(videoPlayer.currentTime));
 }
 
 function init() {
@@ -88,14 +93,9 @@ function init() {
   volumeBtn.addEventListener("click", handleVolumeClick);
   fullScreenBtn.addEventListener("click", goFullScreen);
   videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+  videoPlayer.addEventListener("ended", handleEnded);
 }
 
 if (videoContainer) {
   init();
 }
-
-/* console.log(videoContainer); // 로그 값도 찍히지 않아서 뭐가 문제인지 모르겠습니다
-
-playButton.addEventListener("click", handlePlayClick); // 오류도 생기지 않아요
- */
-// console.log("this");
