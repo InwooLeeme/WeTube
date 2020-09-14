@@ -648,4 +648,14 @@ input[type="submit"] {
       height: 5px;
       width: 15%; }
 
+.record-container {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 50px;
+  margin-top: 70px; }
+  .record-container video {
+    background-color: #444444;
+    width: 100%;
+    margin-bottom: 20px; }
+
 /*# sourceMappingURL=styles.css.map*/
