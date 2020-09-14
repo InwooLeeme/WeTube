@@ -257,8 +257,15 @@ var recordBtn = document.getElementById("jsRecordBtn");
 var videoPreview = document.getElementById("jsVideoPreview");
 var streamObject;
 
-var startRecording = function startRecording(stream) {
+var handleVideoData = function handleVideoData(event) {
+  console.log(event);
+};
+
+var startRecording = function startRecording() {
   console.log(streamObject);
+  var videoRecorder = new MediaRecorder(streamObject);
+  videoRecorder.start();
+  videoRecorder.addEventListener("dataavailable", handleVideoData);
 }; // 동영상 녹화 함수
 
 

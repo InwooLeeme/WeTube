@@ -4,8 +4,15 @@ const videoPreview = document.getElementById("jsVideoPreview");
 
 let streamObject;
 
-const startRecording = (stream) => {
+const handleVideoData = (event) => {
+  console.log(event);
+};
+
+const startRecording = () => {
   console.log(streamObject);
+  const videoRecorder = new MediaRecorder(streamObject);
+  videoRecorder.start();
+  videoRecorder.addEventListener("dataavailable", handleVideoData);
 };
 
 // 동영상 녹화 함수

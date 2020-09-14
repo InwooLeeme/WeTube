@@ -229,9 +229,13 @@ input[type="submit"] {
        -moz-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .header .header__wrapper .header__column i {
+    .header .header__wrapper .header__column i,
+    .header .header__wrapper .header__column span {
       color: white;
       font-size: 40px; }
+    .header .header__wrapper .header__column #title {
+      margin-left: 10px;
+      font-family: "Lobster", cursive; }
     .header .header__wrapper .header__column:nth-child(2) {
       width: 100%;
       justify-self: center; }
