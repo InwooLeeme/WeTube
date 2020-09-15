@@ -256,16 +256,30 @@ var recorderContainer = document.getElementById("jsRecordContainer");
 var recordBtn = document.getElementById("jsRecordBtn");
 var videoPreview = document.getElementById("jsVideoPreview");
 var streamObject;
+var videoRecorder;
 
 var handleVideoData = function handleVideoData(event) {
-  console.log(event);
+  var videoFile = event.data;
+  var link = document.createElement("a");
+  link.href = URL.createObjectURL(videoFile);
+  link.download = "recorded.webm";
+  document.body.appendChild(link);
+  link.click();
 };
 
 var startRecording = function startRecording() {
   console.log(streamObject);
-  var videoRecorder = new MediaRecorder(streamObject);
-  videoRecorder.start();
+  videoRecorder = new MediaRecorder(streamObject);
+  videoRecorder.start(1000);
   videoRecorder.addEventListener("dataavailable", handleVideoData);
+  recordBtn.addEventListener("click", stopRecording); //setTimeout(() => videoRecorder.stop(), 5000); // 5초후 종료
+};
+
+var stopRecording = function stopRecording() {
+  videoRecorder.stop();
+  recordBtn.removeEventListener("click", stopRecording);
+  recordBtn.addEventListener("click", getVideo);
+  recordBtn.innerHTML = "Start Recording";
 }; // 동영상 녹화 함수
 
 
