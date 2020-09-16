@@ -29,4 +29,5 @@ block content
                 input(type="text", placeholder="Add a comment")
             ul.video__comments-list
                 each comment in video.comment
-                    span comment.text
+                    li
+                        span=comment.text
