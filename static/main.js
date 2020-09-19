@@ -102,7 +102,23 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var addCommentForm = document.getElementById("jsAddComment"); // comment를 보내는 함수
+var addCommentForm = document.getElementById("jsAddComment");
+var commentList = document.getElementById("jsCommentList");
+var commentNumber = document.getElementById("jsCommentNumber");
+
+var increaseNumber = function increaseNumber() {
+  commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
+};
+
+var addComment = function addComment(comment) {
+  var li = document.createElement("li");
+  var span = document.createElement("span");
+  span.innerHTML = comment;
+  li.appendChild(span);
+  commentList.prepend(li);
+  increaseNumber();
+}; // comment를 보내는 함수
+
 
 var sendComment = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(comment) {
@@ -124,7 +140,10 @@ var sendComment = /*#__PURE__*/function () {
 
           case 3:
             response = _context.sent;
-            console.log(response);
+
+            if (response.status === 200) {
+              addComment(comment);
+            }
 
           case 5:
           case "end":
